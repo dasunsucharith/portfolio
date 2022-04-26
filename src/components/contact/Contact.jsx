@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, {useRef, useState} from 'react'
 import './Contact.css'
 import {MdOutlineEmail} from 'react-icons/md'
 import {RiMessengerLine} from 'react-icons/ri'
@@ -7,11 +7,22 @@ import emailjs from 'emailjs-com'
 
 function Contact() {
     const form = useRef();
+    const [done,setDone] = useState(false);
 
     const sendEmail = (e) => {
         e.preventDefault();
 
         emailjs.sendForm('service_i45882l', 'template_5m1go0u', form.current, 'FR-fCeUaEH95XZsxQ')
+
+        .then(
+            (result) => {
+                console.log(result.text);
+                setDone(true)
+            },
+            (error) => {
+                console.log(error.text)
+            }
+        )
 
         e.target.reset()
     }
@@ -48,6 +59,7 @@ function Contact() {
                     <input type="email" name='email' placeholder='Your Email' required />
                     <textarea name="message" placeholder='Your Message' rows="7" required></textarea>
                     <button type='submit' className='btn btn-primary'>Send Message</button>
+                    {done && "Message Has Been Sent!..."}
                 </form>
             </div>
         </section>
