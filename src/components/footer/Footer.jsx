@@ -2,12 +2,12 @@ import React from 'react'
 import './Footer.css'
 import {FaFacebookF} from 'react-icons/fa'
 import {FiInstagram} from 'react-icons/fi'
-import {IoLogoTwitter} from 'react-icons/fi'
+import {IoLogoTwitter} from 'react-icons/io'
 
 function Footer() {
   return (
     <footer>
-      <a href="#home" className='footer__logo'>DSP</a>
+      <a href="#home" className='footer__logo'>Dasun Sucharith</a>
 
       <ul className="permalinks">
         <li><a href="#home">Home</a></li>
@@ -20,9 +20,13 @@ function Footer() {
       </ul>
 
       <div className="footer__socials">
-        <a href="https://facebook.com"></a>
-        <a href="https://instagram.com"></a>
-        <a href="https://twitter.com"></a>
+        <a href="https://facebook.com"><FaFacebookF/></a>
+        <a href="https://instagram.com"><FiInstagram/></a>
+        <a href="https://twitter.com"><IoLogoTwitter/></a>
+      </div>
+
+      <div className="footer__copyright">
+        <small>&copy; Dasun Sucharith. All rights reserved.</small>
       </div>
     </footer>
   )
